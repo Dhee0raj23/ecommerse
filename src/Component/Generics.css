@@ -1,0 +1,18 @@
+.gContainer {
+  background-color: lightgrey;
+  width: 100%;
+  padding: 2rem;
+  text-align: center;
+}
+
+.text {
+  font-size: 60px;
+  margin-left: 50px;
+}
+
+.Music {
+  text-align: center;
+  margin-top: 10px;
+  font-size: 30px;
+  margin-left: 50px;
+}
