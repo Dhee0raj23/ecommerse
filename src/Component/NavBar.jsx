@@ -1,5 +1,5 @@
 import { Container, Navbar, Nav } from "react-bootstrap";
-const NavBar = () => {
+const NavBar = (props) => {
   return (
     <div>
       <Navbar bg="dark" expand="sm" variant="dark">
@@ -11,7 +11,9 @@ const NavBar = () => {
             <Nav.Link href="#link">About</Nav.Link>
           </Nav>
           <Nav className="ml-auto">
-            <Nav.Link href="#cart">Cart</Nav.Link>
+            <Nav.Link href="#cart" onClick={props.cartOpen}>
+              Cart
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>
