@@ -1,3 +1,4 @@
+import { Button } from "react-bootstrap";
 const CartList = (props) => {
   const { id, title, price, image } = props;
   return (
@@ -21,13 +22,17 @@ const CartList = (props) => {
       </div>
       <div style={{ display: "flex" }}>
         <div>
-          <button>ADD</button>
+          <Button variant="outline-dark" style={{ width: "80px" }}>
+            ADD
+          </Button>
         </div>
         <div>
-          <input type="text" style={{ width: "40px" }} />
+          <input type="text" style={{ width: "40px", padding: "0.3rem" }} />
         </div>
         <div>
-          <button>Remove</button>
+          <Button variant="outline-dark" style={{ width: "80px" }}>
+            Remove
+          </Button>
         </div>
       </div>
     </div>
