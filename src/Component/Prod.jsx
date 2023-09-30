@@ -3,7 +3,7 @@ import CartContext from "../Context/CartContext";
 import { Button } from "react-bootstrap";
 
 const Prod = (props) => {
-  const { addToCart } = useContext(CartContext);
+  const { addToCart, increaseCount } = useContext(CartContext);
   const { id, title, price, image } = props;
 
   return (
@@ -18,6 +18,7 @@ const Prod = (props) => {
           variant="outline-dark"
           onClick={() => {
             addToCart(id);
+            increaseCount();
           }}
         >
           Add To Cart

@@ -1,5 +1,9 @@
+import React, { useContext } from "react";
+import CartContext from "../Context/CartContext";
+
 import { Container, Navbar, Nav } from "react-bootstrap";
 const NavBar = (props) => {
+  const { cartCount } = useContext(CartContext);
   return (
     <div>
       <Navbar bg="dark" expand="sm" variant="dark">
@@ -12,7 +16,7 @@ const NavBar = (props) => {
           </Nav>
           <Nav className="ml-auto">
             <Nav.Link href="#cart" onClick={props.cartOpen}>
-              Cart
+              Cart{" " + cartCount}
             </Nav.Link>
           </Nav>
         </Container>

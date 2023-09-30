@@ -11,6 +11,11 @@ const defaultCart = () => {
 };
 const CartContextProvider = (props) => {
   const [cartItem, setCartItem] = useState(defaultCart());
+  const [cartCount, setCartCount] = useState(0);
+
+  const increaseCount = () => {
+    setCartCount((prev) => prev + 1);
+  };
 
   const addToCart = (id) => {
     setCartItem((prev) => ({ ...prev, [id]: prev[id] + 1 }));
@@ -19,6 +24,8 @@ const CartContextProvider = (props) => {
   const contextValue = {
     cartItem,
     addToCart,
+    cartCount,
+    increaseCount,
   };
   console.log(cartItem);
 
