@@ -1,7 +1,8 @@
 import React, { useContext } from "react";
-import CartContext from "../Context/CartContext";
-
 import { Container, Navbar, Nav } from "react-bootstrap";
+import CartContext from "../Context/CartContext";
+import { Link } from "react-router-dom";
+
 const NavBar = (props) => {
   const { cartCount } = useContext(CartContext);
   return (
@@ -10,14 +11,16 @@ const NavBar = (props) => {
         <Container>
           <Navbar.Brand>Ecommerce</Navbar.Brand>
           <Nav className="mx-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Store</Nav.Link>
-            <Nav.Link href="#link">About</Nav.Link>
+            <Nav.Link>
+              <Link to="/">Home</Link>
+            </Nav.Link>
+            <Nav.Link>Store</Nav.Link>
+            <Nav.Link>
+              <Link to="/about">About</Link>
+            </Nav.Link>
           </Nav>
           <Nav className="ml-auto">
-            <Nav.Link href="#cart" onClick={props.cartOpen}>
-              Cart{" " + cartCount}
-            </Nav.Link>
+            <Nav.Link onClick={props.cartOpen}>Cart{" " + cartCount}</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

@@ -1,25 +1,18 @@
-import React, { useState } from "react";
-import NavBar from "./Component/NavBar";
-import Generics from "./Component/Generics";
-import ProductList from "./Component/ProductList";
-import Cart from "./Component/Cart";
+import React from "react";
 import CartContextProvider from "./Context/CartContextProvider";
+import HomePage from "./Pages/HomePage";
+import About from "./Pages/About";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+
+const router = createBrowserRouter([
+  { path: "/", element: <HomePage /> },
+  { path: "/about", element: <About /> },
+]);
 
 function App() {
-  const [openCart, setOpenCart] = useState(false);
-  const openCartTrue = () => {
-    setOpenCart(true);
-  };
-  const closeCartFalse = () => {
-    setOpenCart(false);
-  };
-
   return (
     <CartContextProvider>
-      <Cart closeCartF={closeCartFalse} isOpen={openCart} />
-      <NavBar cartOpen={openCartTrue} />
-      <Generics />
-      <ProductList />
+      <RouterProvider router={router} />
     </CartContextProvider>
   );
 }
