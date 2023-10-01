@@ -4,7 +4,7 @@ import Generics from "../Component/Generics";
 import NavBar from "../Component/NavBar";
 import ProductList from "../Component/ProductList";
 
-const HomePage = () => {
+const Store = () => {
   const [openCart, setOpenCart] = useState(false);
   const openCartTrue = () => {
     setOpenCart(true);
@@ -22,4 +22,4 @@ const HomePage = () => {
   );
 };
 
-export default HomePage;
+export default Store;

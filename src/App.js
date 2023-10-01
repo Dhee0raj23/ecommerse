@@ -1,12 +1,14 @@
 import React from "react";
 import CartContextProvider from "./Context/CartContextProvider";
-import HomePage from "./Pages/HomePage";
+import Store from "./Pages/Store";
 import About from "./Pages/About";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import Home from "./Pages/Home";
 
 const router = createBrowserRouter([
-  { path: "/", element: <HomePage /> },
+  { path: "/", element: <Store /> },
   { path: "/about", element: <About /> },
+  { path: "/home", element: <Home /> },
 ]);
 
 function App() {

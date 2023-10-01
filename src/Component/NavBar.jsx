@@ -12,9 +12,11 @@ const NavBar = (props) => {
           <Navbar.Brand>Ecommerce</Navbar.Brand>
           <Nav className="mx-auto">
             <Nav.Link>
-              <Link to="/">Home</Link>
+              <Link to="home">Home</Link>
             </Nav.Link>
-            <Nav.Link>Store</Nav.Link>
+            <Nav.Link>
+              <Link to="/">Store</Link>
+            </Nav.Link>
             <Nav.Link>
               <Link to="/about">About</Link>
             </Nav.Link>

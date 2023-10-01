@@ -1,0 +1,40 @@
+.homecontainer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: grey;
+  color: white;
+  padding: 30px;
+}
+
+.para {
+  border: 1px solid skyblue;
+  padding: 10px;
+  margin-top: 50px;
+}
+
+.icon {
+  border: 1px solid skyblue;
+  width: 40px;
+  border-radius: 100px;
+  color: skyblue;
+  text-align: center;
+  margin: auto;
+}
+
+.list {
+  display: flex;
+  justify-content: center;
+  justify-content: space-around;
+  width: 50%;
+  margin: 10px auto;
+}
+
+.listbutton {
+  background-color: skyblue;
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  width: 100px;
+  color: white;
+}
