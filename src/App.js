@@ -1,20 +1,22 @@
 import React from "react";
+import NavBar from "./Component/NavBar";
 import CartContextProvider from "./Context/CartContextProvider";
 import Store from "./Pages/Store";
 import About from "./Pages/About";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./Pages/Home";
-
-const router = createBrowserRouter([
-  { path: "/", element: <Store /> },
-  { path: "/about", element: <About /> },
-  { path: "/home", element: <Home /> },
-]);
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <CartContextProvider>
-      <RouterProvider router={router} />
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/store" element={<Store />} />
+        </Routes>
+      </Router>
     </CartContextProvider>
   );
 }

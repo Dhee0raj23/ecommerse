@@ -1,9 +1,7 @@
 import "./Home.css";
-import NavBar from "../Component/NavBar";
 const Home = () => {
   return (
     <div>
-      <NavBar />
       <div className="homecontainer">
         <h1 className="heading"> The Generics </h1>
         <div>

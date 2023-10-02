@@ -1,9 +1,7 @@
 import Generics from "../Component/Generics";
-import NavBar from "../Component/NavBar";
 const About = (props) => {
   return (
     <div>
-      <NavBar />
       <Generics />
       Lorem ipsum dolor sit amet consectetur adipisicing elit. Eveniet numquam
       esse quis et sequi vitae quasi repellat rem quos cumque ipsum voluptas

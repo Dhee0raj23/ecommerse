@@ -12,7 +12,7 @@ const NavBar = (props) => {
           <Navbar.Brand>Ecommerce</Navbar.Brand>
           <Nav className="mx-auto">
             <Nav.Link>
-              <Link to="home">Home</Link>
+              <Link to="store">Home</Link>
             </Nav.Link>
             <Nav.Link>
               <Link to="/">Store</Link>
