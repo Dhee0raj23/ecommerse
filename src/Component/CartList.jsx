@@ -1,6 +1,6 @@
 import { Button } from "react-bootstrap";
 const CartList = (props) => {
-  const { id, title, price, image } = props;
+  const { title, price, image } = props;
   return (
     <div
       style={{
@@ -13,7 +13,7 @@ const CartList = (props) => {
         margin: "auto",
       }}
     >
-      <img src={image} alt="image" style={{ width: "100px" }} />
+      <img src={image} alt="songs" style={{ width: "100px" }} />
       <div>
         <h2>{title}</h2>
       </div>

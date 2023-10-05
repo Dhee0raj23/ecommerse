@@ -7,9 +7,7 @@ import CartList from "./CartList";
 
 const Cart = (props) => {
   const { cartItem } = useContext(CartContext);
-  if (!props.isOpen) {
-    return null;
-  }
+
   return (
     <div className="cart-container">
       <div className="title">
@@ -30,10 +28,12 @@ const Cart = (props) => {
         }
       })}
       <div className="cart-btn">
-        <Button variant="outline-dark" onClick={props.closeCartF}>
+        <Button variant="outline-dark" className="cart-btn">
           Cancel
         </Button>
-        <Button variant="outline-dark">Order</Button>
+        <Button variant="outline-dark" className="cart-btn">
+          Order
+        </Button>
       </div>
     </div>
   );

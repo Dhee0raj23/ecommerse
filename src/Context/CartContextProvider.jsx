@@ -27,7 +27,6 @@ const CartContextProvider = (props) => {
     cartCount,
     increaseCount,
   };
-  console.log(cartItem);
 
   return (
     <CartContext.Provider value={contextValue}>

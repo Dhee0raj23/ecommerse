@@ -22,7 +22,9 @@ const NavBar = (props) => {
             </Nav.Link>
           </Nav>
           <Nav className="ml-auto">
-            <Nav.Link onClick={props.cartOpen}>Cart{" " + cartCount}</Nav.Link>
+            <Nav.Link>
+              <Link to="/cart">Cart{" " + cartCount}</Link>
+            </Nav.Link>
           </Nav>
         </Container>
       </Navbar>

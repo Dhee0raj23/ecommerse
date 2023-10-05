@@ -8,7 +8,7 @@ const Prod = (props) => {
 
   return (
     <div>
-      <img src={image} alt="image" />
+      <img src={image} alt="songs" />
       <div>
         <h2>{title}</h2>
         <h2>{price}</h2>
