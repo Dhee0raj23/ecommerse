@@ -1,29 +1,26 @@
 import React from "react";
-import RootLayout from "./Pages/Root";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import NavBar from "./Component/NavBar";
 import CartContextProvider from "./Context/CartContextProvider";
 import Store from "./Pages/Store";
 import About from "./Pages/About";
 import Home from "./Pages/Home";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Cart from "./Component/Cart";
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <RootLayout />,
-    children: [
-      { path: "/", element: <Home /> },
-      { path: "/store", element: <Store /> },
-      { path: "/about", element: <About /> },
-      { path: "/cart", element: <Cart /> },
-    ],
-  },
-]);
+import ContactUs from "./Pages/Contact";
 
 function App() {
   return (
     <CartContextProvider>
-      <RouterProvider router={router} />;
+      <Router>
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/store" element={<Store />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/contactUs" element={<ContactUs />} />
+        </Routes>
+      </Router>
     </CartContextProvider>
   );
 }

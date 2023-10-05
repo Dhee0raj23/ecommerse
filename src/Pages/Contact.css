@@ -1,0 +1,36 @@
+.black {
+  background-color: rgb(29, 28, 28);
+  height: 100vh;
+}
+
+.form-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.form-title {
+  color: skyblue;
+  margin-top: 100px;
+}
+
+.inputs {
+  margin: 10px;
+  padding: 10px;
+  border: none;
+  background-color: rgb(29, 28, 28);
+  border-bottom: 1px solid skyblue;
+  color: white;
+  margin-top: 100px;
+  width: 450px;
+}
+
+.contactButton {
+  margin-top: 100px;
+  background-color: skyblue;
+  padding: 20px;
+  width: 150px;
+  border-radius: 10px;
+  border: none;
+}

@@ -20,6 +20,9 @@ const NavBar = (props) => {
             <Nav.Link>
               <Link to="/about">About</Link>
             </Nav.Link>
+            <Nav.Link>
+              <Link to="/contactUs">ContactUs</Link>
+            </Nav.Link>
           </Nav>
           <Nav className="ml-auto">
             <Nav.Link>
