@@ -1,0 +1,16 @@
+.detail-container {
+  height: 91vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-img {
+  margin: 100px;
+}
+
+.descri {
+  display: flex;
+  flex-direction: column;
+  width: 800px;
+}

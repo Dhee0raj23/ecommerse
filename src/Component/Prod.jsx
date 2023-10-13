@@ -1,26 +1,28 @@
 import React, { useContext } from "react";
 import CartContext from "../Context/CartContext";
 import { Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const Prod = (props) => {
   const { addToCart, increaseCount } = useContext(CartContext);
   const { id, title, price, image } = props;
 
+  const handleAddToCart = () => {
+    addToCart(id);
+    increaseCount();
+  };
+
   return (
     <div>
-      <img src={image} alt="songs" />
+      <Link to={`/store/${id}`}>
+        <img src={image} alt="songs" />
+        <div>
+          <h2>{title}</h2>
+          <h2>{price}</h2>
+        </div>
+      </Link>
       <div>
-        <h2>{title}</h2>
-        <h2>{price}</h2>
-      </div>
-      <div>
-        <Button
-          variant="outline-dark"
-          onClick={() => {
-            addToCart(id);
-            increaseCount();
-          }}
-        >
+        <Button variant="outline-dark" onClick={handleAddToCart}>
           Add To Cart
         </Button>
       </div>

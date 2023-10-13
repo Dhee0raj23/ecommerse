@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { Product } from "./ProductData";
 import Prod from "./Prod";
 
@@ -6,10 +7,13 @@ const ProductList = () => {
   return (
     <div className="container">
       <div className="row">
-        {Product.map((product, index) => (
-          <div className="col-md-6 d-flex justify-content-center" key={index}>
+        {Product.map((product) => (
+          <div
+            className="col-md-6 d-flex justify-content-center"
+            key={product.id}
+          >
             <Prod
-              id={index}
+              id={product.id}
               title={product.title}
               price={product.price}
               image={product.imageUrl}

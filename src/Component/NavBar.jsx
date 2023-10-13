@@ -3,7 +3,7 @@ import { Container, Navbar, Nav } from "react-bootstrap";
 import CartContext from "../Context/CartContext";
 import { Link } from "react-router-dom";
 
-const NavBar = (props) => {
+const NavBar = () => {
   const { cartCount } = useContext(CartContext);
   return (
     <div>
@@ -12,10 +12,10 @@ const NavBar = (props) => {
           <Navbar.Brand>Ecommerce</Navbar.Brand>
           <Nav className="mx-auto">
             <Nav.Link>
-              <Link to="store">Home</Link>
+              <Link to="/home">Home</Link>
             </Nav.Link>
             <Nav.Link>
-              <Link to="/">Store</Link>
+              <Link to="/store">Store</Link>
             </Nav.Link>
             <Nav.Link>
               <Link to="/about">About</Link>
@@ -27,6 +27,9 @@ const NavBar = (props) => {
           <Nav className="ml-auto">
             <Nav.Link>
               <Link to="/cart">Cart{" " + cartCount}</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link to="/login">Login</Link>
             </Nav.Link>
           </Nav>
         </Container>
