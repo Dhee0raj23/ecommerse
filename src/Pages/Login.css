@@ -4,7 +4,11 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: rgba(75, 110, 130, 0.486);
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 255, 0.368),
+    rgba(55, 0, 128, 0.464)
+  );
 }
 
 .loginCard {
@@ -40,4 +44,17 @@
   padding: 10px;
   background: linear-gradient(to right, blue, rgb(55, 0, 128));
   color: white;
+}
+
+.toggleContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle {
+  border: none;
+  background-color: white;
+  color: blue;
+  margin-top: 50px;
 }

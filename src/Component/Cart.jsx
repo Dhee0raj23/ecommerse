@@ -14,7 +14,6 @@ const Cart = (props) => {
         <h1>Your Cart</h1>
       </div>
       {Product.map((product, index) => {
-        console.log(product.id);
         if (cartItem[product.id] !== 0) {
           return (
             <CartList

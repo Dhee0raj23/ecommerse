@@ -1,5 +1,4 @@
 .black {
-  background-color: rgb(29, 28, 28);
   height: 100vh;
 }
 
@@ -11,7 +10,7 @@
 }
 
 .form-title {
-  color: skyblue;
+  color: rgb(47, 127, 159);
   margin-top: 100px;
 }
 
@@ -19,18 +18,19 @@
   margin: 10px;
   padding: 10px;
   border: none;
-  background-color: rgb(29, 28, 28);
   border-bottom: 1px solid skyblue;
-  color: white;
   margin-top: 100px;
   width: 450px;
+  font-size: x-large;
 }
 
 .contactButton {
   margin-top: 100px;
-  background-color: skyblue;
+  background-color: rgb(46, 95, 114);
   padding: 20px;
   width: 150px;
   border-radius: 10px;
   border: none;
+  color: white;
+  font-size: x-large;
 }

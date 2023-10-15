@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import CartContextProvider from "./Context/CartContextProvider";
 import Store from "./Pages/Store";
 import About from "./Pages/About";
@@ -9,37 +9,49 @@ import ContactUs from "./Pages/Contact";
 import ProductDetail from "./Component/ProductDetail";
 import Layout from "./Component/Layout";
 import Login from "./Pages/Login";
+import { AuthContext } from "./Context/auth-context";
 
 function App() {
+  const authCtx = useContext(AuthContext);
   return (
     <CartContextProvider>
       <Layout>
         <Switch>
-          <Route path="/store/:id">
-            <ProductDetail />
-          </Route>
+          {authCtx.userIsLoggedIn && (
+            <Route path="/store/:id">
+              <ProductDetail />
+            </Route>
+          )}
+          {authCtx.userIsLoggedIn && (
+            <Route path="/store" exact>
+              <Store />
+            </Route>
+          )}
 
-          <Route path="/store" exact>
-            <Store />
-          </Route>
+          {authCtx.userIsLoggedIn && (
+            <Route path="/about">
+              <About />
+            </Route>
+          )}
 
-          <Route path="/about">
-            <About />
-          </Route>
+          {authCtx.userIsLoggedIn && (
+            <Route path="/home">
+              <Home />
+            </Route>
+          )}
+          {authCtx.userIsLoggedIn && (
+            <Route path="/cart">
+              <Cart />
+            </Route>
+          )}
 
-          <Route path="/home">
-            <Home />
-          </Route>
+          {authCtx.userIsLoggedIn && (
+            <Route path="/contactUs">
+              <ContactUs />
+            </Route>
+          )}
 
-          <Route path="/cart">
-            <Cart />
-          </Route>
-
-          <Route path="/contactUs">
-            <ContactUs />
-          </Route>
-
-          <Route path="/Login">
+          <Route path="/">
             <Login />
           </Route>
         </Switch>

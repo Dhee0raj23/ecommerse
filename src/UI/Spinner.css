@@ -1,0 +1,15 @@
+.spin {
+  border: 3px solid;
+  height: 50px;
+  width: 50px;
+  margin: auto;
+  border-color: white transparent white transparent;
+  border-radius: 50%;
+  animation: spin 0.9s ease infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
