@@ -1,6 +1,20 @@
 import { Button } from "react-bootstrap";
+import CartContext from "../Context/CartContext";
+import { useContext } from "react";
+
 const CartList = (props) => {
-  const { title, price, image } = props;
+  const { cartItem, addToCart, removeFromCart, decreaseCount, increaseCount } =
+    useContext(CartContext);
+  const { id, title, price, image } = props;
+
+  const removeButtonHandler = () => {
+    removeFromCart(id);
+    decreaseCount();
+  };
+  const addButtonHandler = () => {
+    addToCart();
+    increaseCount();
+  };
   return (
     <div
       style={{
@@ -22,15 +36,12 @@ const CartList = (props) => {
       </div>
       <div style={{ display: "flex" }}>
         <div>
-          <Button variant="outline-dark" style={{ width: "80px" }}>
-            ADD
-          </Button>
-        </div>
-        <div>
-          <input type="text" style={{ width: "40px", padding: "0.3rem" }} />
-        </div>
-        <div>
-          <Button variant="outline-dark" style={{ width: "80px" }}>
+          <h3>{`quantity ${cartItem[id]}`}</h3>
+          <Button
+            variant="outline-dark"
+            style={{ width: "80px" }}
+            onClick={removeButtonHandler}
+          >
             Remove
           </Button>
         </div>
