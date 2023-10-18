@@ -4,12 +4,11 @@ import { Button } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Prod = (props) => {
-  const { addToCart, increaseCount } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
   const { id, title, price, image } = props;
 
   const handleAddToCart = () => {
     addToCart(id);
-    increaseCount();
   };
 
   return (

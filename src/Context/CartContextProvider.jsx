@@ -10,25 +10,25 @@ const defaultCart = () => {
   }
   return cart;
 };
+
 const CartContextProvider = (props) => {
   const [cartItem, setCartItem] = useState(() => {
     const storedCartData = localStorage.getItem(CART_STORAGE_KEY);
     return storedCartData ? JSON.parse(storedCartData) : defaultCart();
   });
-  const [cartCount, setCartCount] = useState(0);
-
-  const increaseCount = () => {
-    setCartCount((prev) => prev + 1);
-  };
-  const decreaseCount = () => {
-    setCartCount((prev) => prev - 1);
-  };
+  const initialCartCount = Object.values(cartItem).reduce(
+    (total, count) => total + count,
+    0
+  );
+  const [cartCount, setCartCount] = useState(initialCartCount);
 
   const addToCart = (id) => {
     setCartItem((prev) => ({ ...prev, [id]: prev[id] + 1 }));
+    setCartCount((prev) => prev + 1);
   };
   const removeFromCart = (id) => {
     setCartItem((prev) => ({ ...prev, [id]: prev[id] - 1 }));
+    setCartCount((prev) => prev - 1);
   };
 
   useEffect(() => {
@@ -40,8 +40,6 @@ const CartContextProvider = (props) => {
     addToCart,
     removeFromCart,
     cartCount,
-    increaseCount,
-    decreaseCount,
   };
 
   return (

@@ -3,18 +3,13 @@ import CartContext from "../Context/CartContext";
 import { useContext } from "react";
 
 const CartList = (props) => {
-  const { cartItem, addToCart, removeFromCart, decreaseCount, increaseCount } =
-    useContext(CartContext);
+  const { cartItem, removeFromCart } = useContext(CartContext);
   const { id, title, price, image } = props;
 
   const removeButtonHandler = () => {
     removeFromCart(id);
-    decreaseCount();
   };
-  const addButtonHandler = () => {
-    addToCart();
-    increaseCount();
-  };
+
   return (
     <div
       style={{

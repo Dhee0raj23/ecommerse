@@ -10,7 +10,6 @@ const NavBar = () => {
   const isLoggedIn = authCtx.userIsLoggedIn;
   const logoutHandler = () => {
     authCtx.logoutHandler();
-    localStorage.clear();
   };
   return (
     <div>
