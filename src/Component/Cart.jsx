@@ -1,49 +1,76 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import CartContext from "../Context/CartContext";
-import { Button } from "react-bootstrap";
 import "./Cart.css";
-import { Product } from "./ProductData";
-import CartList from "./CartList";
 
 const Cart = () => {
-  const { cartItem } = useContext(CartContext);
-  const isCartEmpty = Object.values(cartItem).every(
-    (quantity) => quantity === 0
-  );
+  const { removeFromCart, cleanedEmail } = useContext(CartContext);
+  const [cartItems, setCartItems] = useState([]);
+
+  const fetchCartData = async () => {
+    try {
+      const response = await fetch(
+        `https://crudcrud.com/api/5e34c750ed024353a27e01a1b9071d37/${cleanedEmail}`
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to fetch cart data.");
+      }
+
+      const data = await response.json();
+
+      setCartItems(data);
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {
+    fetchCartData();
+  }, [cleanedEmail]);
+
+  const handleRemoveFromCart = async (item) => {
+    try {
+      const response = await fetch(
+        `https://crudcrud.com/api/5e34c750ed024353a27e01a1b9071d37/${cleanedEmail}/${item._id}`,
+        {
+          method: "DELETE",
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Failed to remove item from the cart.");
+      }
+
+      fetchCartData();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
-    <div>
-      {isCartEmpty ? (
-        <div style={{ marginLeft: "45%", marginTop: "20%" }}>
-          <h1>Cart is Empty</h1>
-        </div>
-      ) : (
-        <div className="cart-container">
-          <div className="title">
-            <h1>Your Cart</h1>
-          </div>
-          {Product.map((product, index) => {
-            if (cartItem[product.id] !== 0) {
-              return (
-                <CartList
-                  key={index}
-                  id={index}
-                  title={product.title}
-                  price={product.price}
-                  image={product.imageUrl}
-                />
-              );
-            }
-          })}
-          <div className="cart-btn">
-            <Button variant="outline-dark" className="cart-btn">
-              Cancel
-            </Button>
-            <Button variant="outline-dark" className="cart-btn">
-              Order
-            </Button>
-          </div>
-        </div>
-      )}
+    <div className="cart-container">
+      <h2>Your Cart</h2>
+      <ul className="cart-items">
+        {cartItems.map((item) => (
+          <li key={item.id} className="cart-item">
+            <div className="item-details">
+              <img src={item.imageUrl} alt={item.title} />
+              <div>
+                <h3>{item.title}</h3>
+                <p>Price: {item.price}</p>
+              </div>
+            </div>
+            <div className="remove-btn">
+              <button
+                className="remove-button"
+                onClick={() => handleRemoveFromCart(item)}
+              >
+                Remove
+              </button>
+            </div>
+          </li>
+        ))}
+      </ul>
     </div>
   );
 };

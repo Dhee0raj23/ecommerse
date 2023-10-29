@@ -57,7 +57,7 @@ const Login = () => {
         }
       })
       .then((data) => {
-        authCtx.loginHandler(data.idToken);
+        authCtx.loginHandler(data.idToken, enteredEmail);
         history.replace("/home");
       })
       .catch((err) => {

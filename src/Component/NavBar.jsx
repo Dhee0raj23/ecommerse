@@ -1,11 +1,9 @@
 import React, { useContext } from "react";
 import { Container, Navbar, Nav } from "react-bootstrap";
-import CartContext from "../Context/CartContext";
 import { AuthContext } from "../Context/auth-context";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
-  const { cartCount } = useContext(CartContext);
   const authCtx = useContext(AuthContext);
   const isLoggedIn = authCtx.userIsLoggedIn;
   const logoutHandler = () => {
@@ -44,7 +42,7 @@ const NavBar = () => {
           <Nav className="ml-auto">
             {isLoggedIn && (
               <Link to="/cart" className="nav-link mr-3">
-                Cart{" " + cartCount}
+                Cart
               </Link>
             )}
             {!isLoggedIn && (
